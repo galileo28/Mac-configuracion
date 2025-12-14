@@ -1,107 +1,89 @@
-tap "homebrew/services"
-brew "cliclick"
-brew "cmake"
-brew "fzf"
-brew "go"
-brew "jq"
-brew "lftp"
-brew "mysql", restart_service: :changed
-brew "python@3.12"
-brew "pipx"
-brew "tree"
+# ==========================================
+# 🍺 BREWFILE MAESTRO - Configuración Mac
+# ==========================================
+
+tap "homebrew/services" # Permite correr bases de datos (MySQL) en segundo plano
+
+# ------------------------------------------
+# 🚀 HERRAMIENTAS MODERNAS (Superpoderes CLI)
+# ------------------------------------------
+brew "bat"          # Un 'cat' mejorado: con colores y números de línea
+brew "eza"          # Un 'ls' moderno: con iconos, colores y mejor formato
+brew "zoxide"       # Un 'cd' inteligente: aprende tus carpetas más usadas
+brew "ripgrep"      # Buscador de texto ultrarrápido (reemplaza a grep)
+brew "fd"           # Buscador de archivos rápido y amigable (reemplaza a find)
+brew "lazygit"      # Interfaz gráfica increíble para Git dentro de la terminal
+brew "thefuck"      # Corrige tus errores de comandos automáticamente
+brew "btop"         # Monitor de sistema visual (CPU, RAM, Red)
+brew "tldr"         # Manuales de comandos simplificados con ejemplos
+brew "fastfetch"    # Muestra información del sistema y el logo (estético)
+brew "fzf"          # Buscador difuso (Ctrl+R para historial)
+
+# ------------------------------------------
+# 🛠 HERRAMIENTAS ESENCIALES
+# ------------------------------------------
+brew "git"
+brew "wget"         # Descargar archivos de internet
+brew "tree"         # Ver estructura de carpetas en árbol
 brew "vim"
-brew "wget"
-cask "discord"
-cask "goneovim"
+brew "jq"           # Procesar y leer archivos JSON
+brew "cmake"        # Compilador necesario para muchas herramientas
+brew "mysql", restart_service: :changed
+
+# ------------------------------------------
+# 🐍 LENGUAJES DE PROGRAMACIÓN
+# ------------------------------------------
+brew "go"
+brew "python@3.12"
+brew "pipx"         # Para instalar aplicaciones Python aisladas
+
+# ------------------------------------------
+# 🖥 APLICACIONES DE ESCRITORIO (CASKS)
+# ------------------------------------------
 cask "visual-studio-code"
-vscode "aaron-bond.better-comments"
-vscode "bradlc.vscode-tailwindcss"
-vscode "christian-kohler.path-intellisense"
-vscode "cweijan.dbclient-jdbc"
-vscode "cweijan.vscode-mysql-client2"
-vscode "dbaeumer.vscode-eslint"
-vscode "dev1ce.canvas"
-vscode "dsznajder.es7-react-js-snippets"
-vscode "esbenp.prettier-vscode"
-vscode "formulahendry.auto-close-tag"
-vscode "formulahendry.auto-rename-tag"
-vscode "formulahendry.code-runner"
-vscode "formulahendry.vscode-mysql"
+cask "discord"
+cask "font-fira-code-nerd-font" # Fuente recomendada para ver los iconos en terminal
+
+# ------------------------------------------
+# 🆚 VS CODE EXTENSIONS (Limpias y Organizadas)
+# ------------------------------------------
+
+# >> Estética e Iconos
+vscode "pkief.material-icon-theme"
+vscode "zhuangtongfa.material-theme"
+vscode "naumovs.color-highlight"
+vscode "usernamehw.errorlens"  # Muestra el error en la misma línea de código
+
+# >> Inteligencia Artificial
 vscode "github.copilot"
 vscode "github.copilot-chat"
-vscode "hollowtree.canvas-snippets"
-vscode "hyoretsu.code-spell-checker-language-pack"
-vscode "jeff-hykin.better-cpp-syntax"
-vscode "lkrms.inifmt"
-vscode "mikestead.dotenv"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-ceintl.vscode-language-pack-es"
-vscode "ms-dotnettools.csharp"
-vscode "ms-dotnettools.vscode-dotnet-runtime"
-vscode "ms-python.debugpy"
-vscode "ms-python.isort"
+
+# >> Web (HTML/CSS/JS/React)
+vscode "esbenp.prettier-vscode"
+vscode "dbaeumer.vscode-eslint"
+vscode "dsznajder.es7-react-js-snippets"
+vscode "bradlc.vscode-tailwindcss"
+vscode "ritwickdey.liveserver"
+vscode "formulahendry.auto-close-tag"
+vscode "formulahendry.auto-rename-tag"
+
+# >> Backend & Data
+vscode "rangav.vscode-thunder-client"    # Cliente API (Tipo Postman)
+vscode "cweijan.vscode-mysql-client2"    # El mejor cliente de Bases de Datos
+
+# >> Python
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode-remote.vscode-remote-extensionpack"
-vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpptools"
+vscode "ms-toolsai.jupyter"              # Notebooks
+
+# >> Otros Lenguajes (.NET / Docker / C++)
+vscode "ms-dotnettools.csharp"
+vscode "ms-azuretools.vscode-docker"
 vscode "ms-vscode.cpptools-extension-pack"
-vscode "ms-vscode.cpptools-themes"
-vscode "ms-vscode.mono-debug"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-server"
-vscode "naumovs.color-highlight"
-vscode "neikeq.godot-csharp-vscode"
-vscode "octref.vscode-mavo"
-vscode "pkief.material-icon-theme"
-vscode "rangav.vscode-thunder-client"
-vscode "rapidapi.vscode-rapidapi-client"
-vscode "rapidapi.vscode-services"
-vscode "redhat.java"
-vscode "ritwickdey.liveserver"
-vscode "simonsiefke.svg-preview"
-vscode "sldobri.bunker"
+
+# >> Utilidades
+vscode "ms-vscode-remote.vscode-remote-extensionpack" # SSH y WSL
+vscode "formulahendry.code-runner"
 vscode "streetsidesoftware.code-spell-checker"
-vscode "streetsidesoftware.code-spell-checker-catalan"
-vscode "streetsidesoftware.code-spell-checker-croatian"
-vscode "streetsidesoftware.code-spell-checker-czech"
-vscode "streetsidesoftware.code-spell-checker-danish"
-vscode "streetsidesoftware.code-spell-checker-french"
-vscode "streetsidesoftware.code-spell-checker-german"
-vscode "streetsidesoftware.code-spell-checker-greek"
-vscode "streetsidesoftware.code-spell-checker-hebrew"
-vscode "streetsidesoftware.code-spell-checker-italian"
-vscode "streetsidesoftware.code-spell-checker-medical-terms"
-vscode "streetsidesoftware.code-spell-checker-persian"
-vscode "streetsidesoftware.code-spell-checker-polish"
-vscode "streetsidesoftware.code-spell-checker-portuguese-brazilian"
-vscode "streetsidesoftware.code-spell-checker-russian"
 vscode "streetsidesoftware.code-spell-checker-spanish"
-vscode "streetsidesoftware.code-spell-checker-swedish"
-vscode "streetsidesoftware.code-spell-checker-turkish"
-vscode "streetsidesoftware.code-spell-checker-ukrainian"
-vscode "streetsidesoftware.code-spell-checker-vietnamese"
-vscode "stylelint.vscode-stylelint"
-vscode "tobermory.es6-string-html"
-vscode "twxs.cmake"
-vscode "usernamehw.errorlens"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
-vscode "vscjava.vscode-gradle"
-vscode "vscjava.vscode-java-debug"
-vscode "vscjava.vscode-java-dependency"
-vscode "vscjava.vscode-java-pack"
-vscode "vscjava.vscode-maven"
-vscode "vscode-icons-team.vscode-icons"
-vscode "wallabyjs.console-ninja"
-vscode "yoavbls.pretty-ts-errors"
-vscode "zhuangtongfa.material-theme"
+vscode "ms-ceintl.vscode-language-pack-es"
